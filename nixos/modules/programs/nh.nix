@@ -15,10 +15,12 @@ in
     package = lib.mkPackageOption pkgs "nh" { };
 
     flake = lib.mkOption {
-      type = lib.types.nullOr lib.types.path;
+      type = lib.types.nullOr lib.types.str;
       default = null;
       description = ''
-        The path that will be used for the `FLAKE` environment variable.
+        The flake reference URL that will be used for the `FLAKE` environment variable.
+
+        See [this page](https://nix.dev/manual/nix/latest/command-ref/new-cli/nix3-flake#url-like-syntax for examples).
 
         `FLAKE` is used by nh as the default flake for performing actions, like `nh os switch`.
       '';
